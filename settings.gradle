@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Android_homwork1.3"
