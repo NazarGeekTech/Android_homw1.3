@@ -18,6 +18,7 @@ public class SecondActivity extends AppCompatActivity {
     private EditText editText;
     private Button button;
 
+    private String image="Nazzar";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +47,9 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = getIntent();
                 intent.putExtra("Address", editText.getText().toString());
+                intent.putExtra("image",image);
                 setResult(RESULT_OK,intent);
-                finish();
+               finish();
             }
         });
 
@@ -57,6 +59,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == SELECT_IMAGE && resultCode == RESULT_OK && data != null) {
+            image= data.getDataString();
             Uri uri = data.getData(); // нужно для того, чтобы установить фотографию
             imageView.setImageURI(uri);
         }

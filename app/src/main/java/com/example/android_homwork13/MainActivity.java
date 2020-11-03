@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
             String adress = data.getStringExtra("Address");
             textView.setText(adress);
             Toast.makeText(this, "succes", Toast.LENGTH_SHORT).show();
+            String mani=data.getStringExtra("image");
+            Uri uri = Uri.parse(mani);
+            imageView.setImageURI(uri);
         }
     }
 }
